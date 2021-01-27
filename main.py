@@ -24,13 +24,16 @@ DNA_lookup = {
     "C": "G"
 }
 
+
 def antisense(input_DNA):
     flipped = input_DNA[::-1]
     anti = "".join([DNA_lookup[x] for x in flipped])
     return anti
 
 def transcription(input_DNA):
-    pass
+    anti = antisense(input_DNA)
+    anti = anti.replace("T","U")
+    return anti
 
 
 test = "ACGTT"
