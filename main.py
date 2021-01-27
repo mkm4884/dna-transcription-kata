@@ -26,7 +26,14 @@ DNA_lookup = {
     "C": "G"
 }
 
-codon_lookup = json.load("data/codons.json")
+with open("data/codons.json") as c:
+    codon_lookup = json.load(c)
+print(codon_lookup)
+
+with open("data/peptides.json") as p:
+    peptides_lookup = json.load(p)
+print(peptides_lookup)
+
 
 def antisense(input_DNA):
     flipped = input_DNA[::-1]
