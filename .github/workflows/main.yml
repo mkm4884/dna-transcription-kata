@@ -1,0 +1,31 @@
+name: Linux Workflow 
+on: [push]
+jobs:
+  main: 
+    name: Run Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: What is your favourite song?
+        run: echo 'Barbie girl' > song.txt
+        
+      - name: Install miniconda
+        run: |
+          wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh 
+          bash ~/miniconda.sh -b
+          export PATH=~/miniconda3/bin:$PATH
+          conda update --yes conda
+          
+      - name: Generate conda environment 
+        run: |
+          conda env create -f environment.yml
+          conda run -n dna_trans python --version
+      - name: Run protein sequencing script
+        run: |
+          conda run -n normalCollab python main.py
+          
+#       - name: Show best histogram EVER as pdf
+#         uses: actions/upload-artifact@v2
+#         with: 
+#           name: histogram
+#           path: ./norm_plot.pdf 
