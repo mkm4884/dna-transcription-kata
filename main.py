@@ -37,12 +37,17 @@ def transcription(input_DNA):
 
 
 test = "ACGTT"
+test2 = "CAUGUACCAUG"
 
 def test_antisense():
     assert antisense(test) == "AACGT"
 
 def test_transcription():
     assert transcription(test) == "AACGU"
+
+def test_findStart():
+    assert findStart(test2) == [1, 8]
+
 
 
 
