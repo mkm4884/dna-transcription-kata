@@ -18,8 +18,19 @@ input_DNA = "AGGACGGGCTAACTCCGCTCGTCACAAAGCGCAATGCAGCTATGGCAGATGTTCATGCCG"
 
 
 
+
 def antisense(input_DNA):
     pass
 
+
 def transcription(input_DNA):
     pass
+
+
+test = "ACGT"
+
+def test_antisense():
+    assert antisense(test) == "TGCA"
+
+
+
