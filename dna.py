@@ -16,21 +16,6 @@ import pytest
 import re
 import json
 
-input_DNA = "AGGACGGGCTAACTCCGCTCGTCACAAAGCGCAATGCAGCTATGGCAGATGTTCATGCCG"
-
-
-DNA_lookup = {
-    "A": "T",
-    "T": "A",
-    "G": "C",
-    "C": "G"
-}
-
-with open("data/codons.json") as c:
-    codon_lookup = json.load(c)
-
-with open("data/peptides.json") as p:
-    peptides_lookup = json.load(p)
 
 
 def antisense(input_DNA):
@@ -50,6 +35,28 @@ def findStart(input_RNA):
     start_idxs = [m.start() for m in re.finditer(start, input_RNA)]
     print(start_idxs)
     return start_idxs
+
+input_DNA = "AGGACGGGCTAACTCCGCTCGTCACAAAGCGCAATGCAGCTATGGCAGATGTTCATGCCG"
+
+
+DNA_lookup = {
+    "A": "T",
+    "T": "A",
+    "G": "C",
+    "C": "G"
+}
+
+with open("data/codons.json") as c:
+    codon_lookup = json.load(c)
+
+with open("data/peptides.json") as p:
+    peptides_lookup = json.load(p)
+
+antisense_DNA = antisense(input_DNA)
+antisense_RNA = transcription(antisense_DNA)
+sense_RNA = transcription(input_DNA)
+antisense_starts = findStart(antisense_RNA)
+sense_starts
 
 
 
