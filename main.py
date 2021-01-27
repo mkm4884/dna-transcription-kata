@@ -17,11 +17,16 @@ import pytest
 input_DNA = "AGGACGGGCTAACTCCGCTCGTCACAAAGCGCAATGCAGCTATGGCAGATGTTCATGCCG"
 
 
-
+DNA_lookup = {
+    "A": "T",
+    "T": "A",
+    "G": "C",
+    "C": "G"
+}
 
 def antisense(input_DNA):
-    pass
-
+    anti = "".join([DNA_lookup[x] for x in input_DNA])
+    return anti
 
 def transcription(input_DNA):
     pass
