@@ -12,6 +12,7 @@ Loop through the strands, read codons, save index of AUG
     find first stop codon - store in list, break loop
 Output Protein seq
 '''
+import pytest
 
 input_DNA = "AGGACGGGCTAACTCCGCTCGTCACAAAGCGCAATGCAGCTATGGCAGATGTTCATGCCG"
 
