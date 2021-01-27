@@ -13,6 +13,7 @@ Loop through the strands, read codons, save index of AUG
 Output Protein seq
 '''
 import pytest
+import re
 
 input_DNA = "AGGACGGGCTAACTCCGCTCGTCACAAAGCGCAATGCAGCTATGGCAGATGTTCATGCCG"
 
@@ -30,10 +31,18 @@ def antisense(input_DNA):
     anti = "".join([DNA_lookup[x] for x in flipped])
     return anti
 
+
 def transcription(input_DNA):
     anti = antisense(input_DNA)
     anti = anti.replace("T","U")
     return anti
+
+
+def findStart(input_RNA):
+    start = "AUG"
+    start_idxs = [m.start() for m in re.finditer(start, input_RNA)]
+    print(start_idxs)
+    return start_idxs
 
 
 test = "ACGTT"
