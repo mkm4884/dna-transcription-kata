@@ -22,7 +22,7 @@ jobs:
           conda run -n dna_trans python --version
       - name: Run protein sequencing script
         run: |
-          conda run -n normalCollab python main.py
+          conda run -n dna_trans python main.py
           
 #       - name: Show best histogram EVER as pdf
 #         uses: actions/upload-artifact@v2
