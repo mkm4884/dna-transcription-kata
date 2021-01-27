@@ -6,6 +6,6 @@ Make antisense strand
 flip antisense strand
 Convert to RNA (both strands)
 Loop through the strands, read codons, save index of AUG
-
+ty
 
 '''
