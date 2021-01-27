@@ -33,7 +33,7 @@ def transcription(input_DNA):
 def findStart(input_RNA):
     start = "AUG"
     start_idxs = [m.start() for m in re.finditer(start, input_RNA)]
-    print(start_idxs)
+    # print(start_idxs)
     return start_idxs
 
 input_DNA = "AGGACGGGCTAACTCCGCTCGTCACAAAGCGCAATGCAGCTATGGCAGATGTTCATGCCG"
@@ -58,7 +58,14 @@ sense_RNA = transcription(input_DNA)
 antisense_starts = findStart(antisense_RNA)
 sense_starts = findStart(sense_RNA)
 
-
+for start in sense_starts:
+    for idx in range(start, len(sense_RNA), 3):
+        triplet = sense_RNA[idx:idx+3]
+        print(triplet)
+        codon = codon_lookup[triplet]
+        print(codon)
+        peptide = peptides_lookup[codon]
+        print(peptide)
 
 
 
