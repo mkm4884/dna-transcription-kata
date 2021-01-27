@@ -16,4 +16,10 @@ import pytest
 
 input_DNA = "AGGACGGGCTAACTCCGCTCGTCACAAAGCGCAATGCAGCTATGGCAGATGTTCATGCCG"
 
-def seq(input_DNA):
+
+
+def antisense(input_DNA):
+    pass
+
+def transcription(input_DNA):
+    pass
