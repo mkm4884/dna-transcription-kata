@@ -14,6 +14,7 @@ Output Protein seq
 '''
 import pytest
 import re
+import json
 
 input_DNA = "AGGACGGGCTAACTCCGCTCGTCACAAAGCGCAATGCAGCTATGGCAGATGTTCATGCCG"
 
@@ -25,6 +26,7 @@ DNA_lookup = {
     "C": "G"
 }
 
+codon_lookup = json.load("data/codons.json")
 
 def antisense(input_DNA):
     flipped = input_DNA[::-1]
@@ -45,6 +47,7 @@ def findStart(input_RNA):
     return start_idxs
 
 
+
 test = "ACGTT"
 test2 = "CAUGUACCAUG"
 
@@ -56,6 +59,8 @@ def test_transcription():
 
 def test_findStart():
     assert findStart(test2) == [1, 8]
+
+
 
 
 
