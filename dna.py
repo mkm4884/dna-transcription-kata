@@ -56,7 +56,9 @@ antisense_DNA = antisense(input_DNA)
 antisense_RNA = transcription(antisense_DNA)
 sense_RNA = transcription(input_DNA)
 antisense_starts = findStart(antisense_RNA)
-sense_starts
+sense_starts = findStart(sense_RNA)
+
+
 
 
 

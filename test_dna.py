@@ -1,13 +1,18 @@
 import dna
+import pytest
 
-test = "ACGTT"
-test2 = "CAUGUACCAUG"
+@pytest.fixture()
+def test():
+    return "ACGTT"
 
-def test_antisense():
+
+def test_antisense(test):
     assert dna.antisense(test) == "AACGT"
 
-def test_transcription():
+
+def test_transcription(test):
     assert dna.transcription(test) == "AACGU"
 
+
 def test_findStart():
-    assert dna.findStart(test2) == [1, 8]
+    assert dna.findStart("CAUGUACCAUG") == [1, 8]
