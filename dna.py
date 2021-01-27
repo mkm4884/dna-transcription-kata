@@ -28,11 +28,9 @@ DNA_lookup = {
 
 with open("data/codons.json") as c:
     codon_lookup = json.load(c)
-print(codon_lookup)
 
 with open("data/peptides.json") as p:
     peptides_lookup = json.load(p)
-print(peptides_lookup)
 
 
 def antisense(input_DNA):
@@ -55,17 +53,7 @@ def findStart(input_RNA):
 
 
 
-test = "ACGTT"
-test2 = "CAUGUACCAUG"
 
-def test_antisense():
-    assert antisense(test) == "AACGT"
-
-def test_transcription():
-    assert transcription(test) == "AACGU"
-
-def test_findStart():
-    assert findStart(test2) == [1, 8]
 
 
 
