@@ -64,7 +64,7 @@ for start in sense_starts:
         print(triplet)
         codon = codon_lookup[triplet]
         print(codon)
-        peptide = peptides_lookup[codon]
+        peptide = peptides_lookup[codon.lower()]
         print(peptide)
 
 
