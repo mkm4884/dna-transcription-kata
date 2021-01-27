@@ -38,6 +38,9 @@ test = "ACGTT"
 def test_antisense():
     assert antisense(test) == "AACGT"
 
+def test_transcription():
+    assert transcription(test) == "AACGU"
+
 
 
 
