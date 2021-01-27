@@ -12,14 +12,10 @@ Loop through the strands, read codons, save index of AUG
     find first stop codon - store in list, break loop
 Output Protein seq
 '''
+import pytest
 import re
+import json
 
-DNA_lookup = {
-        "A": "T",
-        "T": "A",
-        "G": "C",
-        "C": "G"
-    }
 
 
 def antisense(input_DNA):
@@ -39,4 +35,46 @@ def findStart(input_RNA):
     start_idxs = [m.start() for m in re.finditer(start, input_RNA)]
     # print(start_idxs)
     return start_idxs
+
+input_DNA = "AGGACGGGCTAACTCCGCTCGTCACAAAGCGCAATGCAGCTATGGCAGATGTTCATGCCG"
+
+
+DNA_lookup = {
+    "A": "T",
+    "T": "A",
+    "G": "C",
+    "C": "G"
+}
+
+with open("data/codons.json") as c:
+    codon_lookup = json.load(c)
+
+with open("data/peptides.json") as p:
+    peptides_lookup = json.load(p)
+
+antisense_DNA = antisense(input_DNA)
+antisense_RNA = transcription(antisense_DNA)
+sense_RNA = transcription(input_DNA)
+antisense_starts = findStart(antisense_RNA)
+sense_starts = findStart(sense_RNA)
+
+for start in sense_starts:
+    for idx in range(start, len(sense_RNA), 3):
+        triplet = sense_RNA[idx:idx+3]
+        print(triplet)
+        codon = codon_lookup[triplet]
+        print(codon)
+        peptide = peptides_lookup[codon.lower()]
+        print(peptide)
+
+
+
+
+
+
+
+
+
+
+
 
