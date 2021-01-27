@@ -25,17 +25,20 @@ DNA_lookup = {
 }
 
 def antisense(input_DNA):
-    anti = "".join([DNA_lookup[x] for x in input_DNA])
+    flipped = input_DNA[::-1]
+    anti = "".join([DNA_lookup[x] for x in flipped])
     return anti
 
 def transcription(input_DNA):
     pass
 
 
-test = "ACGT"
+test = "ACGTT"
 
 def test_antisense():
-    assert antisense(test) == "TGCA"
+    assert antisense(test) == "AACGT"
+
+
 
 
 
